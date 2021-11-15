@@ -34,7 +34,8 @@ class Stack
 public:
     // конструктор по умолчанию; в нём инициализируются переменные
     Stack() : topElement(nullptr), currentSize(0) {}
-
+    // деструктор по умолчанию
+    ~Stack() { erase(); }
     // метод для добавления нового элемента 
     void push(const T valueToAdd)
     {
@@ -44,7 +45,7 @@ public:
         currentSize++;
     }  
     // метод для удаления всего содержимого текущего стека
-    void empty()
+    void erase()
     {
         if (currentSize == 1)
         {
@@ -54,7 +55,7 @@ public:
         // удаление текущего верхнего узла
         delete_current_node();
         // рекурсивный вызов функции для удаления узлов
-        empty();
+        erase();
     }
 
     // метод для удаления верхнего элемента стека
