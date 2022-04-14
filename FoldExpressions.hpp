@@ -20,6 +20,22 @@ namespace fold
     template <typename ... dType>
     auto Deduction(dType ... values)
     {
-        return (... - values);
+        return (0 - ... - values);
+    }
+
+    // Логическое &&
+    // возврещает true, если нет параметров
+    template <typename ... aType>
+    bool logAnd(aType ... expressions)
+    {
+        return (expressions && ...);
+    }
+
+    // Логическое ||
+    // возвращает false, если нет параметров
+    template <typename ... rType>
+    bool logOrr(rType ... expressions)
+    {
+        return (expressions || ...);
     }
 }
